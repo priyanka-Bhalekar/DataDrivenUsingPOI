@@ -23,6 +23,7 @@ public class DataDrivenByExcelTest {
 			
 			 Xls_Reader reader = new Xls_Reader("C:\\Users\\priyanka.bhalekar\\eclipse-workspace\\Selenium_project\\resources\\Testdata.xlsx");
 			
+			 reader.addColumn("registerationtestdata", "Status");
 	         int i=reader.getRowCount("registerationtestdata");
 			 for(int rownum=2;rownum<=i ;rownum++)
 	    {
@@ -64,13 +65,8 @@ public class DataDrivenByExcelTest {
 	    	driver.findElement(By.xpath("//input[@id='email']")).sendKeys(email);
 	    	driver.findElement(By.xpath("//input[@id='retype_email']")).clear();
 	    	driver.findElement(By.xpath("//input[@id='retype_email']")).sendKeys(email);
-	    	
-	    
-	    
-	    
-	    
-	    
-	    
+	    	reader.setCellData("registerationtestdata", "Status", rownum, "Pass");
+	     
 	    }
 			
 	}
